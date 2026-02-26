@@ -1,0 +1,21 @@
+# Virtual environment
+.venv/
+__pycache__/
+*.pyc
+
+# Data and large files
+data/
+*.jpg
+*.png
+*.jpeg
+*.tif
+
+# Outputs and models
+outputs/
+*.pt
+
+# IDE and misc
+.idea/
+.vscode/
+.qodo/
+.DS_Store
