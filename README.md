@@ -7,8 +7,8 @@ DisasterVision AI is a research-grade pipeline that analyzes pre- and post-disas
 ## 🚀 Key Features
 - **Multimodal Fusion**: Two-stream ResNet-50 architecture that compares "before" and "after" images.
 - **Explainable AI**: Integrated **Grad-CAM** visualizations to highlight regions influencing model predictions.
-- **High Performance**: Reaches **~85% validation accuracy** on the xBD dataset subset.
-- **Modular Pipeline**: Scripts for data preparation, training, evaluation, and inference.
+- **High Performance**: Reaches **~85% validation accuracy** (outperforming single-image baselines).
+- **Modular Pipeline**: Standardized scripts for data preparation, training, evaluation, and inference.
 
 ---
 
@@ -62,17 +62,3 @@ To predict damage for a specific pre/post image pair:
 ```bash
 python scripts/predict_multimodal.py --pre path/to/pre.png --post path/to/post.png
 ```
-
----
-
-## 📊 Results Summary
-- **Test Accuracy**: 84.85%
-- **Macro F1**: 0.79
-- **Top Class Performance**: Destroyed (91%), No Damage (86%)
-
----
-
-## 🔬 Technical Documentation
-For a deep dive into the architecture and training analysis, see:
-- `training_analysis.md`: Detailed logs and unfreeze strategies.
-- `project_summary.md`: Comprehensive portfolio overview.
