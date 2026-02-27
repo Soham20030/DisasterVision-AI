@@ -44,19 +44,27 @@ class GradCAM:
 
     def __call__(
         self,
-        input_tensor: torch.Tensor,
+        *args,
         target_class: int = None,
+        **kwargs
     ) -> np.ndarray:
         """
-        Compute Grad-CAM heatmap for the given input.
+        Compute Grad-CAM heatmap for the given inputs.
         target_class: class to explain (default: predicted class).
         Returns: 2D heatmap (H, W) in [0, 1].
         """
         self.model.eval()
         self._register_hooks()
-        input_tensor = input_tensor.requires_grad_(True)
+        
+        # Ensure gradients are tracked for inputs
+        for a in args:
+            if isinstance(a, torch.Tensor):
+                a.requires_grad_(True)
+        for k in kwargs:
+            if isinstance(kwargs[k], torch.Tensor):
+                kwargs[k].requires_grad_(True)
 
-        output = self.model(input_tensor)
+        output = self.model(*args, **kwargs)
         if target_class is None:
             target_class = output.argmax(dim=1).item()
         self.model.zero_grad()

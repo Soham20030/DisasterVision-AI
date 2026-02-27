@@ -1,0 +1,10 @@
+# DisasterVision backend dependencies
+# Install into the existing project venv or a new one.
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+python-multipart>=0.0.9       # required for FastAPI file uploads
+pydantic>=2.0.0
+
+# Image processing (already present in project, listed for completeness)
+Pillow>=9.0.0
+numpy>=1.21.0
